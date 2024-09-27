@@ -1,2 +1,3 @@
+*.fastq
 multiplexed.fq
 sample_sheet.csv
