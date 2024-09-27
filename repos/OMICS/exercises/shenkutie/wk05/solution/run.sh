@@ -1,2 +1,5 @@
-file                                          format  type  num_seqs  sum_len  min_len  avg_len  max_len
-../../../../content/wk05/data/multiplexed.fq  FASTQ   DNA      1,900  264,787       43    139.4      159
+  #ln -s ../../../../content/wk05/data/multiplexed.fq
+  #ln -s ../../../../content/wk05/data/sample_sheet.csv 
+  wc -l sample_sheet.csv 
+  cat sample_sheet.csv
+  seqkit stats multiplexed.fq  | tee muxed.stats.tsv 
