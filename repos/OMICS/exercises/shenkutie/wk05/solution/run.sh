@@ -8,7 +8,13 @@ seqkit stats multiplexed.fq  | tee muxed.stats.tsv
 #SRR23803537,ACCT,TCAG
 #SRR23803538,CTGC,CCAG
 #SRR23803539,CTGC,TCAG
+# Demultiplexed by barcode
 seqkit grep -srip ^ACCT multiplexed.fq |seqkit grep -srip CCAG$ -o SRR23803536.fastq
 seqkit grep -srip ^ACCT multiplexed.fq |seqkit grep -srip TCAG$ -o SRR23803537.fastq
 seqkit grep -srip ^CTGC multiplexed.fq |seqkit grep -srip CCAG$ -o SRR23803538.fastq
 seqkit grep -srip ^CTGC multiplexed.fq |seqkit grep -srip TCAG$ -o SRR23803539.fastq
+# Trim barcode
+seqkit fq2fa SRR23803536.fastq |seqkit replace -sp ^ACCT -r "" |seqkit replace -sp CCAG$ -r "" -o SRR23803536.trimmed.fastq
+seqkit fq2fa SRR23803537.fastq |seqkit replace -sp ^ACCT -r "" |seqkit replace -sp TCAG$ -r "" -o SRR23803537.trimmed.fastq
+seqkit fq2fa SRR23803538.fastq |seqkit replace -sp ^CTGC -r "" |seqkit replace -sp CCAG$ -r "" -o SRR23803538.trimmed.fastq
+seqkit fq2fa SRR23803539.fastq |seqkit replace -sp ^CTGC -r "" |seqkit replace -sp TCAG$ -r "" -o SRR23803539.trimmed.fastq
