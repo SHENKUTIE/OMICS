@@ -18,3 +18,8 @@ seqkit fq2fa SRR23803536.fastq |seqkit replace -sp ^ACCT -r "" |seqkit replace -
 seqkit fq2fa SRR23803537.fastq |seqkit replace -sp ^ACCT -r "" |seqkit replace -sp TCAG$ -r "" -o SRR23803537.trimmed.fastq
 seqkit fq2fa SRR23803538.fastq |seqkit replace -sp ^CTGC -r "" |seqkit replace -sp CCAG$ -r "" -o SRR23803538.trimmed.fastq
 seqkit fq2fa SRR23803539.fastq |seqkit replace -sp ^CTGC -r "" |seqkit replace -sp TCAG$ -r "" -o SRR23803539.trimmed.fastq
+# report stats
+seqkit stats SRR23803536.trimmed.fastq > demuxed.stats.tsv
+seqkit stats SRR23803537.trimmed.fastq >> demuxed.stats.tsv
+seqkit stats SRR23803538.trimmed.fastq >> demuxed.stats.tsv
+seqkit stats SRR23803539.trimmed.fastq >> demuxed.stats.tsv
