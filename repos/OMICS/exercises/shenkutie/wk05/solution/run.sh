@@ -9,3 +9,6 @@ seqkit stats multiplexed.fq  | tee muxed.stats.tsv
 #SRR23803538,CTGC,CCAG
 #SRR23803539,CTGC,TCAG
 seqkit grep -srip ^ACCT multiplexed.fq |seqkit grep -srip CCAG$ -o SRR23803536.fastq
+seqkit grep -srip ^ACCT multiplexed.fq |seqkit grep -srip TCAG$ -o SRR23803537.fastq
+seqkit grep -srip ^CTGC multiplexed.fq |seqkit grep -srip CCAG$ -o SRR23803538.fastq
+seqkit grep -srip ^CTGC multiplexed.fq |seqkit grep -srip TCAG$ -o SRR23803539.fastq
